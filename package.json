@@ -1,0 +1,24 @@
+{
+  "name": "mithril-util-attributes",
+  "version": "0.1.0",
+  "description": "Utility for Mithril creating attributes",
+  "main": "index.js",
+  "scripts": {
+    "test": "ospec"
+  },
+  "keywords": [
+    "mithril",
+    "utility",
+    "util",
+    "attributes"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "^1.1.1"
+  },
+  "devDependencies": {
+    "ospec": "^1.2.3"
+  },
+  "repository": {}
+}
