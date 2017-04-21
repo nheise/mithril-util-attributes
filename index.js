@@ -1,6 +1,6 @@
 
-function AttributeBuilder( givenAttr ) {
-  const attrs = givenAttr || {};
+function AttributeBuilder( givenAttrs ) {
+  const attrs = givenAttrs || {};
   
   function classes( classAttrs ) {
     const whitespace = ' ';
@@ -30,4 +30,4 @@ function AttributeBuilder( givenAttr ) {
   };
 }
 
-module.exports = givenAttr => new AttributeBuilder( givenAttr );
+module.exports = givenAttrs => new AttributeBuilder( givenAttrs );
