@@ -38,18 +38,41 @@ o.spec("mithril-util-attributes", function() {
     o( attrs.onclick ).deepEquals( fn )
   })
 
-  o.spec("ma classes", function() {
+  o.spec("ma css", function() {
     o("when attribute is evaluate to true, use it as css class", function() {
-      var attr = ma().classes( { 'my-class': true } ).getAttrs()
+      var attr = ma().css( 'my-class', true ).getAttrs()
       o( attr["class"] ).equals( "my-class" )
     })
     o("when attribute is evaluate to false, don't use it as css class", function() {
-      var attr = ma().classes( { 'my-class': false } ).getAttrs()
-      o( attr["class"] ).equals( "" )
+      var attr = ma().css( 'my-class', false ).getAttrs()
+      o( attr["class"] ).equals( undefined )
     })
     o("when two or more attribute are evaluate to true, connect them as css class", function() {
-      var attr = ma().classes( { 'my-class': true, 'my-class2': false, 'my-class3': true } ).getAttrs()
+      var attr = ma().css( 'my-class', true, 'my-class2', false, 'my-class3', true ).getAttrs()
       o( attr["class"] ).equals( "my-class my-class3" )
+    })
+    o("when css are given, concat new classes", function() {
+      var given = { 'class': "myClass" }
+      var attr = ma().css( 'my-class', true, 'my-class2', false, 'my-class3', true ).getAttrs()
+      o( attr["class"] ).equals( "my-class my-class3" )
+    })
+    o("one argument must throw error", function( done ) {
+      try { 
+        ma().css( 'my-class' )
+      }
+      catch(e) {
+        o(e).notEquals( undefined )
+        done()
+      }
+    })
+    o("three arguments must throw error", function( done ) {
+      try { 
+        ma().css( 'my-class', true, 'my-class2' )
+      }
+      catch(e) { 
+        o(e).notEquals( undefined )
+        done()
+      }
     })
   })
   
