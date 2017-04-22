@@ -50,7 +50,7 @@ Creates the attribute object.
 #### builder ma.css( String cssClassName, Boolean useit [,String cssClassName, Boolean useIt ] )
 
 Can be invoked as often you like.
-The last class of two or more identical classes will win.
+The last class of two or more identical class strings will win.
 
 ---
 #### builder ma.id( String id )
@@ -73,7 +73,7 @@ The last class of two or more identical classes will win.
 ---
 #### builder ma.withAttr( String attrName, String event, Object initialValue, Function callback [, Object thisArg ] )
 
-Will invoke this internally:
+This will invoke internally:
 ```javascript
 attrs[attrName] = initialValue
 attrs[event] = m.withAttr( attrName, callback, thisArg )
@@ -83,4 +83,4 @@ attrs[event] = m.withAttr( attrName, callback, thisArg )
 
 #### builder ma.set( String key, Any value )
 
-You are able to set anything you like.
+Set anything attribute you like.

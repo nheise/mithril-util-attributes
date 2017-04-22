@@ -2,7 +2,7 @@
   "name": "mithril-util-attributes",
   "version": "0.1.0",
   "description": "Utility for Mithril creating attributes",
-  "main": "index.js",
+  "main": "attrBuilder.js",
   "scripts": {
     "test": "ospec"
   },

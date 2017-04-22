@@ -12,7 +12,7 @@ o.spec("mithril-util-attributes", function() {
     if (typeof global !== "undefined") {
       global.window = mock
     }
-    ma = require('../index.js')
+    ma = require('../attrBuilder.js')
   })
   
   o("ma without any givings, must create empty object", function() {
