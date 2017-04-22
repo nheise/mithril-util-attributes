@@ -83,4 +83,4 @@ attrs[event] = m.withAttr( attrName, callback, thisArg )
 
 #### builder ma.set( String key, Any value )
 
-Set anything attribute you like.
+Set any attribute you like.
