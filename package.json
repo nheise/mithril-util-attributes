@@ -12,13 +12,13 @@
     "util",
     "attributes"
   ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "mithril": "^1.1.1"
   },
   "devDependencies": {
     "ospec": "^1.2.3"
   },
-  "repository": {}
+  "author": "Niklas Heise <n.heise@heise-media.de>",
+  "license": "MIT",
+  "repository": "nheise/mithril-util-attributes"
 }
