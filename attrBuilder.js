@@ -1,31 +1,11 @@
 var m = require( "mithril" )
+var CssBuilder = require( "./cssBuilder.js" )
 
 function AttributeBuilder( givenAttrs ) {
-  const WHITESPACE = ' '
   const attrs = givenAttrs || {}
   var lastKey
   
-  let cssClasses = {}
-  if( attrs["class"] !== undefined ) { 
-    cssClasses[attrs["class"]] = true 
-  }
-  
-  function css() {
-    if( arguments.length % 2 != 0 ) {
-      throw Error("CSS class definition must be a value pair, attribute name and true/false");
-    }
-    for( var i = 0; i < arguments.length; i += 2 ) {
-      cssClasses[arguments[i]] = arguments[i+1]
-    }
-    return this
-  }
-  
-  function addCssClasses() {
-    var classStr = Object.keys( cssClasses ).filter( key => !!cssClasses[key] ).join( WHITESPACE )
-    if( classStr.length > 0 ) { 
-      attrs["class"] = classStr
-    }
-  }
+  const cssBuilder = new CssBuilder( attrs );
   
   function onclick( fn ) {
     set( "onclick", fn )
@@ -62,6 +42,12 @@ function AttributeBuilder( givenAttrs ) {
     return this
   }
   
+  function set( key, value ) {
+    attrs[key] = value
+    lastKey = key
+    return this
+  }
+  
   function setEvent( key, fn, param1, param2 ) {
     var typeParam1 = typeof param1;
     var typeParam2 = typeof param2;
@@ -72,12 +58,6 @@ function AttributeBuilder( givenAttrs ) {
     
     return this
   }
-
-  function set( key, value ) {
-    attrs[key] = value
-    lastKey = key
-    return this
-  }
   
   function withAttr( attrName, event, initialValue, callback, thisArg ) {
     attrs[attrName] = initialValue
@@ -86,7 +66,7 @@ function AttributeBuilder( givenAttrs ) {
   }
   
   function getAttributes() {
-    addCssClasses()
+    cssBuilder.setClasses()
     return attrs
   }
   
@@ -95,7 +75,7 @@ function AttributeBuilder( givenAttrs ) {
   }
   
   return {
-    css: css,
+    css: cssBuilder.css,
     get : getAttributes,
     set: set,
     onclick: onclick,
