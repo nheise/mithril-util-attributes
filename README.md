@@ -31,31 +31,33 @@ var div = m( "div", ma.css( "highlight", ctrl.isHighlighted(), "bold", ctrl.isBo
 
 ## API
 
-### builder ma.new( [Object givenAttributes] )
+#### builder ma.new( [Object givenAttributes] )
 
 ---
-### builder ma.get()
+#### builder ma.get()
 
 ---
-### builder ma.css( String cssClassName, Boolean useit [,String cssClassName, Boolean useIt ] )
+#### builder ma.css( String cssClassName, Boolean useit [,String cssClassName, Boolean useIt ] )
+
 Can be invoked as often you like.
 The last class of two or more identical classes will win.
----
-### builder ma.id( Object id )
 
 ---
-### builder ma.key( Object key )
+#### builder ma.id( Object id )
 
 ---
-### builder ma.onclick( Function callback )
+#### builder ma.key( Object key )
 
 ---
-### builder ma.value( Object value )
+#### builder ma.onclick( Function callback )
 
 ---
-### builder ma.onchange( Function callback [, Boolean useMithrilWithAttr [, Object thisArg ]] )
+#### builder ma.value( Object value )
 
 ---
-### builder ma.withAttr( attrName, event, initialValue, callback [, thisArg] )
+#### builder ma.onchange( Function callback [, Boolean useMithrilWithAttr [, Object thisArg ]] )
+
+---
+#### builder ma.withAttr( attrName, event, initialValue, callback [, thisArg] )
 
 ---
