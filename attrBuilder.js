@@ -89,4 +89,4 @@ function AttributeBuilder( givenAttrs ) {
   }
 }
 
-module.exports = new AttributeBuilder()
+module.exports = givenAttrs => new AttributeBuilder( givenAttrs )
