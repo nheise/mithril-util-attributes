@@ -14,12 +14,12 @@ First create the builder, use it and get the attributes to use them in the mithr
 var m = require('mithril')
 var ma = require('mithril-util-attributes')
 
-var div = m( "div", ma.id( "0" ).get() )
+var div = m( "div", ma().id( "0" ).get() )
 ```
 ### Create CSS Classes
 
 ```javascript
-var div = m( "div", ma.css( "highlight", ctrl.isHighlighted(), "bold", ctrl.isBold(), "italic",  ctrl.isItalic() ).get() )
+var div = m( "div", ma().css( "highlight", ctrl.isHighlighted(), "bold", ctrl.isBold(), "italic",  ctrl.isItalic() ).get() )
 
 // when ctrl.isHighlighted() == true
 // when ctrl.isBold() == false
@@ -30,48 +30,56 @@ var div = m( "div", ma.css( "highlight", ctrl.isHighlighted(), "bold", ctrl.isBo
 ### Create Event bi-directional binding
 
 ```javascript
-m( "input", ma.name( "description" ).value( "initialValue" ).oninput( ctrl.setDescription ).get() )
+m( "input", ma().name( "description" ).value( "initialValue" ).oninput( ctrl.setDescription ).get() )
 ```
 
 ---
 
 ## API
 
-#### builder ma.new( [Object givenAttributes] )
+### Create the Builder
 
-Creates a new instance of the builder. If you have attributes already, you can them handover via optional parameter. 
+#### Builder ma( [Object givenAttributes] )
+
+Creates a new instance of the builder. If you have attributes already, you can them handover via optional parameter.
+
+### Builder
+
+#### Builder builder.new( [Object givenAttributes] )
+
+Creates a new instance of the builder. If you have attributes already, you can them handover via optional parameter.
 
 ---
-#### Object ma.get()
+#### Object builder.get()
 
 Creates the attribute object.
 
 ---
-#### builder ma.css( String cssClassName, Boolean useit [,String cssClassName, Boolean useIt ] )
+#### Builder builder.css( String cssClassName, Boolean useit [,String cssClassName, Boolean useIt ] )
 
 Can be invoked as often you like.
 The last class of two or more identical class strings will win.
 
 ---
-#### builder ma.id( String id )
+#### Builder builder.id( String id )
 
 ---
-#### builder ma.key( String key )
+#### Builder builder.key( String key )
 
 ---
-#### builder ma.onclick( Function callback )
+#### Builder builder.onclick( Function callback )
 
 ---
-#### builder ma.value( String value )
+#### Builder builder.value( String value )
 
 ---
-#### builder ma.oninput( Function callback [, Boolean useMithrilWithAttrFunction [, Object thisArg ]] )
+#### Builder builder.oninput( Function callback [, Boolean useMithrilWithAttrFunction [, Object thisArg ]] )
 
 ---
-#### builder ma.onchange( Function callback [, Boolean useMithrilWithAttrFunction [, Object thisArg ]] )
+#### Builder builder.onchange( Function callback [, Boolean useMithrilWithAttrFunction [, Object thisArg ]] )
 
 ---
-#### builder ma.withAttr( String attrName, String event, Object initialValue, Function callback [, Object thisArg ] )
+#### Builder builder.withAttr( String attrName, String event, Object initialValue, Function callback [, Object thisArg ] )
 
 This will invoke internally:
 ```javascript
@@ -81,6 +89,6 @@ attrs[event] = m.withAttr( attrName, callback, thisArg )
 
 ---
 
-#### builder ma.set( String key, Any value )
+#### Builder builder.set( String key, Any value )
 
 Set any attribute you like.
